@@ -220,6 +220,7 @@ class SnappingSlider: UIView {
                 isCurrentDraggingSlider = true
                 touchesBeganPoint = sliderPanGestureRecogniser.translationInView(sliderView)
                 dynamicButtonAnimator.removeBehavior(snappingBehavior)
+                lastDelegateFireOffset = (self.bounds.size.width * 0.5) + ((touchesBeganPoint.x + touchesBeganPoint.x) * 0.40)
                 
             case .Changed:
                 
