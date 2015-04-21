@@ -1,9 +1,6 @@
 //
-//  let bp = BeautifulOpenSourceProject(name: "SnappingSlider")
-//  let handsomeAuthor = Author(name: "Rehat Kathuria", portfolioURL: "http://kthr.co")
-//
-
-//  Copyright (c) 2015 Rehat Kathuria
+//  Created by Rehat Kathuria
+//  www.kthr.co
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -25,13 +22,13 @@
 import UIKit
 
 public protocol SnappingSliderDelegate: class {
+    
     func snappingSliderDidIncrementValue(slider:SnappingSlider)
     func snappingSliderDidDecrementValue(slider:SnappingSlider)
 }
 
 public class SnappingSlider: UIView {
 
-    // Dem Exposed Variables
     final public weak var delegate:SnappingSliderDelegate?
 
     final public var incrementAndDecrementLabelFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 18.0)! {
@@ -77,7 +74,6 @@ public class SnappingSlider: UIView {
         }
     }
     
-    // Dem Private Variables
     final private let sliderContainer = UIView(frame: CGRectZero)
     final private let minusLabel = UILabel(frame: CGRectZero)
     final private let plusLabel = UILabel(frame: CGRectZero)
@@ -100,18 +96,14 @@ public class SnappingSlider: UIView {
         super.init(frame: frame)
 
         sliderTitleText = title
-
         setup()
-
         setNeedsLayout()
     }
     
     required public init(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)
-
         setup()
-
         setNeedsLayout()
     }
     

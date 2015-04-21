@@ -1,6 +1,6 @@
 # SnappingSlider
 
-A beautiful slider control for iOS built purely upon Swift.
+A beautiful slider control for iOS.
 
 <h3 align="center">
   <img src="http://i.imgur.com/D6IsT2r.gif" alt="Look at that beauty!" />
