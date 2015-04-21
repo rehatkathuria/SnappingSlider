@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5A9AE5D1AE6D6D600E4DB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A9AE5C1AE6D6D600E4DB27 /* AppDelegate.swift */; };
+		F5A9AE5F1AE6D6D600E4DB27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A9AE5E1AE6D6D600E4DB27 /* ViewController.swift */; };
+		F5A9AE641AE6D6D600E4DB27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A9AE631AE6D6D600E4DB27 /* Images.xcassets */; };
+		F5A9AE731AE6D6D700E4DB27 /* Snapping_Slider_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A9AE721AE6D6D700E4DB27 /* Snapping_Slider_ExampleTests.swift */; };
+		F5A9AE7D1AE6D73500E4DB27 /* SnappingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A9AE7C1AE6D73500E4DB27 /* SnappingSlider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5A9AE6D1AE6D6D700E4DB27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5A9AE4F1AE6D6D600E4DB27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A9AE561AE6D6D600E4DB27;
+			remoteInfo = "Snapping Slider Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F5A9AE571AE6D6D600E4DB27 /* Snapping Slider Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapping Slider Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A9AE5B1AE6D6D600E4DB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A9AE5C1AE6D6D600E4DB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F5A9AE5E1AE6D6D600E4DB27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5A9AE631AE6D6D600E4DB27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F5A9AE6C1AE6D6D700E4DB27 /* Snapping Slider ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Snapping Slider ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A9AE711AE6D6D700E4DB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A9AE721AE6D6D700E4DB27 /* Snapping_Slider_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapping_Slider_ExampleTests.swift; sourceTree = "<group>"; };
+		F5A9AE7C1AE6D73500E4DB27 /* SnappingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnappingSlider.swift; path = ../../../SnappingSlider/SnappingSlider.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5A9AE541AE6D6D600E4DB27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A9AE691AE6D6D700E4DB27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5A9AE4E1AE6D6D600E4DB27 = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE591AE6D6D600E4DB27 /* Snapping Slider Example */,
+				F5A9AE6F1AE6D6D700E4DB27 /* Snapping Slider ExampleTests */,
+				F5A9AE581AE6D6D600E4DB27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5A9AE581AE6D6D600E4DB27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE571AE6D6D600E4DB27 /* Snapping Slider Example.app */,
+				F5A9AE6C1AE6D6D700E4DB27 /* Snapping Slider ExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5A9AE591AE6D6D600E4DB27 /* Snapping Slider Example */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE5C1AE6D6D600E4DB27 /* AppDelegate.swift */,
+				F5A9AE5E1AE6D6D600E4DB27 /* ViewController.swift */,
+				F5A9AE631AE6D6D600E4DB27 /* Images.xcassets */,
+				F5A9AE5A1AE6D6D600E4DB27 /* Supporting Files */,
+			);
+			path = "Snapping Slider Example";
+			sourceTree = "<group>";
+		};
+		F5A9AE5A1AE6D6D600E4DB27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE7C1AE6D73500E4DB27 /* SnappingSlider.swift */,
+				F5A9AE5B1AE6D6D600E4DB27 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5A9AE6F1AE6D6D700E4DB27 /* Snapping Slider ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE721AE6D6D700E4DB27 /* Snapping_Slider_ExampleTests.swift */,
+				F5A9AE701AE6D6D700E4DB27 /* Supporting Files */,
+			);
+			path = "Snapping Slider ExampleTests";
+			sourceTree = "<group>";
+		};
+		F5A9AE701AE6D6D700E4DB27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9AE711AE6D6D700E4DB27 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5A9AE561AE6D6D600E4DB27 /* Snapping Slider Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A9AE761AE6D6D700E4DB27 /* Build configuration list for PBXNativeTarget "Snapping Slider Example" */;
+			buildPhases = (
+				F5A9AE531AE6D6D600E4DB27 /* Sources */,
+				F5A9AE541AE6D6D600E4DB27 /* Frameworks */,
+				F5A9AE551AE6D6D600E4DB27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Snapping Slider Example";
+			productName = "Snapping Slider Example";
+			productReference = F5A9AE571AE6D6D600E4DB27 /* Snapping Slider Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5A9AE6B1AE6D6D700E4DB27 /* Snapping Slider ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A9AE791AE6D6D700E4DB27 /* Build configuration list for PBXNativeTarget "Snapping Slider ExampleTests" */;
+			buildPhases = (
+				F5A9AE681AE6D6D700E4DB27 /* Sources */,
+				F5A9AE691AE6D6D700E4DB27 /* Frameworks */,
+				F5A9AE6A1AE6D6D700E4DB27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5A9AE6E1AE6D6D700E4DB27 /* PBXTargetDependency */,
+			);
+			name = "Snapping Slider ExampleTests";
+			productName = "Snapping Slider ExampleTests";
+			productReference = F5A9AE6C1AE6D6D700E4DB27 /* Snapping Slider ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5A9AE4F1AE6D6D600E4DB27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Kathuria Ltd";
+				TargetAttributes = {
+					F5A9AE561AE6D6D600E4DB27 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					F5A9AE6B1AE6D6D700E4DB27 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = F5A9AE561AE6D6D600E4DB27;
+					};
+				};
+			};
+			buildConfigurationList = F5A9AE521AE6D6D600E4DB27 /* Build configuration list for PBXProject "Snapping Slider Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5A9AE4E1AE6D6D600E4DB27;
+			productRefGroup = F5A9AE581AE6D6D600E4DB27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5A9AE561AE6D6D600E4DB27 /* Snapping Slider Example */,
+				F5A9AE6B1AE6D6D700E4DB27 /* Snapping Slider ExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5A9AE551AE6D6D600E4DB27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A9AE641AE6D6D600E4DB27 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A9AE6A1AE6D6D700E4DB27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5A9AE531AE6D6D600E4DB27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A9AE5F1AE6D6D600E4DB27 /* ViewController.swift in Sources */,
+				F5A9AE7D1AE6D73500E4DB27 /* SnappingSlider.swift in Sources */,
+				F5A9AE5D1AE6D6D600E4DB27 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A9AE681AE6D6D700E4DB27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A9AE731AE6D6D700E4DB27 /* Snapping_Slider_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5A9AE6E1AE6D6D700E4DB27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5A9AE561AE6D6D600E4DB27 /* Snapping Slider Example */;
+			targetProxy = F5A9AE6D1AE6D6D700E4DB27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F5A9AE741AE6D6D700E4DB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5A9AE751AE6D6D700E4DB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5A9AE771AE6D6D700E4DB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Snapping Slider Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F5A9AE781AE6D6D700E4DB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Snapping Slider Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F5A9AE7A1AE6D6D700E4DB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Snapping Slider ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snapping Slider Example.app/Snapping Slider Example";
+			};
+			name = Debug;
+		};
+		F5A9AE7B1AE6D6D700E4DB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Snapping Slider ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snapping Slider Example.app/Snapping Slider Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5A9AE521AE6D6D600E4DB27 /* Build configuration list for PBXProject "Snapping Slider Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A9AE741AE6D6D700E4DB27 /* Debug */,
+				F5A9AE751AE6D6D700E4DB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5A9AE761AE6D6D700E4DB27 /* Build configuration list for PBXNativeTarget "Snapping Slider Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A9AE771AE6D6D700E4DB27 /* Debug */,
+				F5A9AE781AE6D6D700E4DB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5A9AE791AE6D6D700E4DB27 /* Build configuration list for PBXNativeTarget "Snapping Slider ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A9AE7A1AE6D6D700E4DB27 /* Debug */,
+				F5A9AE7B1AE6D6D700E4DB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5A9AE4F1AE6D6D600E4DB27 /* Project object */;
+}
