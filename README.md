@@ -29,4 +29,4 @@ func snappingSliderDidDecrementValue(snapSwitch: SnappingSlider) {
 ```
     
 ## License & Other Boring Stuff
-Feel free to use it as you'd like. Credit is appreciated, but not required. If you use the control somewhere, [do let me know](http://twitter.com/itskathuria). I'd love to see it out in the wild.
+Licensed under MIT. If you use the control somewhere, [do let me know](http://twitter.com/itskathuria). I'd love to see it out in the wild.
