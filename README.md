@@ -9,11 +9,9 @@ A beautiful slider control for iOS.
 ## Installation
 There are two ways to add the control to your project; you can add it as a submodule if you're using GIT as a versioning system or you can install it through CocoaPods. Examples of both are outlined below.
 
-```git submodule add https://github.com/rehatkathuria/SnappingSlider
+`git submodule add https://github.com/rehatkathuria/SnappingSlider`
 
-...
-
-pod "SnappingSlider"```
+`pod "SnappingSlider"`
 
 ## Usage
 It's simple, really. In essence, all you need to do is instantiate a slider with a title and conform to the delegate offered.
@@ -37,5 +35,5 @@ func snappingSliderDidDecrementValue(snapSwitch: SnappingSlider) {
 }
 ```
     
-## License & Other Boring Stuff
+## License & Other Boring Stuff git 
 Licensed under MIT. If you use the control somewhere, [do let me know](http://twitter.com/itskathuria). I'd love to see it out in the wild.
