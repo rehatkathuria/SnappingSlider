@@ -30,30 +30,34 @@ public protocol SnappingSliderDelegate: class {
 public class SnappingSlider: UIView {
 
     final public weak var delegate:SnappingSliderDelegate?
-
+    final public var shouldContinueAlteringValueUntilGestureCancels:Bool = false
     final public var incrementAndDecrementLabelFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 18.0)! {
         didSet {
+            
             setNeedsLayout()
         }
     }
     final public var incrementAndDecrementLabelTextColor:UIColor = UIColor.whiteColor() {
         didSet {
+            
             setNeedsLayout()
         }
     }
     final public var incrementAndDecrementBackgroundColor:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1) {
         didSet {
+            
             setNeedsLayout()
         }
     }
-    
     final public var sliderColor:UIColor = UIColor(red:0.42, green:0.76, blue:0.74, alpha:1) {
         didSet {
+            
             setNeedsLayout()
         }
     }
     final public var sliderTitleFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 15.0)! {
         didSet {
+            
             setNeedsLayout()
         }
     }
@@ -67,12 +71,12 @@ public class SnappingSlider: UIView {
             setNeedsLayout()
         }
     }
-    
     final public var sliderCornerRadius:CGFloat = 3.0 {
         didSet {
             setNeedsLayout()
         }
     }
+    
     
     final private let sliderContainer = UIView(frame: CGRectZero)
     final private let minusLabel = UILabel(frame: CGRectZero)
@@ -83,6 +87,7 @@ public class SnappingSlider: UIView {
     final private var isCurrentDraggingSlider = false
     final private var lastDelegateFireOffset = CGFloat(0)
     final private var touchesBeganPoint = CGPointZero
+    final private var valueChangingTimer:NSTimer?
     
     final private let sliderPanGestureRecogniser = UIPanGestureRecognizer()
     final private let dynamicButtonAnimator = UIDynamicAnimator()
@@ -105,6 +110,33 @@ public class SnappingSlider: UIView {
         super.init(coder: aDecoder)
         setup()
         setNeedsLayout()
+    }
+    
+    private func setup() {
+        
+        sliderContainer.backgroundColor = backgroundColor
+        
+        minusLabel.text = "-"
+        minusLabel.textAlignment = NSTextAlignment.Center
+        sliderContainer.addSubview(minusLabel)
+        
+        plusLabel.text = "+"
+        plusLabel.textAlignment = NSTextAlignment.Center
+        sliderContainer.addSubview(plusLabel)
+        
+        sliderContainer.addSubview(sliderView)
+        
+        sliderViewLabel.userInteractionEnabled = false
+        sliderViewLabel.textAlignment = NSTextAlignment.Center
+        sliderViewLabel.textColor = sliderTitleColor
+        sliderView.addSubview(sliderViewLabel)
+        
+        sliderPanGestureRecogniser.addTarget(self, action: NSSelectorFromString("handleGesture:"))
+        sliderView.addGestureRecognizer(sliderPanGestureRecogniser)
+        
+        sliderContainer.center = CGPointMake(bounds.size.width * 0.5, bounds.size.height * 0.5)
+        addSubview(sliderContainer)
+        clipsToBounds = true
     }
     
     override public func layoutSubviews() {
@@ -146,7 +178,7 @@ public class SnappingSlider: UIView {
         layer.cornerRadius = sliderCornerRadius
     }
     
-    // MARK: Gesture Handling
+    // MARK: Gesture & Timer Handling
     
     final func handleGesture(sender: UIGestureRecognizer) {
 
@@ -162,6 +194,8 @@ public class SnappingSlider: UIView {
                 lastDelegateFireOffset = (bounds.size.width * 0.5) + ((touchesBeganPoint.x + touchesBeganPoint.x) * 0.40)
                 
             case .Changed:
+                
+                valueChangingTimer?.invalidate()
                 
                 let translationInView = sliderPanGestureRecogniser.translationInView(sliderView)
                 let translatedCenterX:CGFloat = (bounds.size.width * 0.5) + ((touchesBeganPoint.x + translationInView.x) * 0.40)
@@ -184,6 +218,11 @@ public class SnappingSlider: UIView {
                     }
                 }
                 
+                if shouldContinueAlteringValueUntilGestureCancels {
+                    
+                    valueChangingTimer = NSTimer.scheduledTimerWithTimeInterval(0.7, target: self, selector: NSSelectorFromString("handleTimer:"), userInfo: nil, repeats: true)
+                }
+                
             case .Ended:
 
                 fallthrough
@@ -197,40 +236,27 @@ public class SnappingSlider: UIView {
                 dynamicButtonAnimator.addBehavior(snappingBehavior)
                 isCurrentDraggingSlider = false
                 lastDelegateFireOffset = center.x
-
+                valueChangingTimer?.invalidate()
+                
             case .Possible:
 
                 // Swift requires at least one statement per case
                 let x = 0
             }
         }
-        
     }
+    
+    final func handleTimer(sender: NSTimer) {
+    
+        if CGRectGetMidX(sliderView.frame) > CGRectGetMidX(self.bounds) {
+            
+            delegate?.snappingSliderDidIncrementValue(self)
+        }
+        else {
+            
+            delegate?.snappingSliderDidDecrementValue(self)
+        }
 
-    private func setup() {
-        sliderContainer.backgroundColor = backgroundColor
-
-        minusLabel.text = "-"
-        minusLabel.textAlignment = NSTextAlignment.Center
-        sliderContainer.addSubview(minusLabel)
-
-        plusLabel.text = "+"
-        plusLabel.textAlignment = NSTextAlignment.Center
-        sliderContainer.addSubview(plusLabel)
-
-        sliderContainer.addSubview(sliderView)
-
-        sliderViewLabel.userInteractionEnabled = false
-        sliderViewLabel.textAlignment = NSTextAlignment.Center
-        sliderViewLabel.textColor = sliderTitleColor
-        sliderView.addSubview(sliderViewLabel)
-
-        sliderPanGestureRecogniser.addTarget(self, action: NSSelectorFromString("handleGesture:"))
-        sliderView.addGestureRecognizer(sliderPanGestureRecogniser)
-
-        sliderContainer.center = CGPointMake(bounds.size.width * 0.5, bounds.size.height * 0.5)
-        addSubview(sliderContainer)
-        clipsToBounds = true
     }
 }
 
