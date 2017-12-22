@@ -139,7 +139,7 @@ open class SnappingSlider: UIView {
     
     // MARK: Gesture & Timer Handling
     
-    final func handleGesture(_ sender: UIGestureRecognizer) {
+    @objc final func handleGesture(_ sender: UIGestureRecognizer) {
 
         guard let snapBehavior = snappingBehavior else { return }
 
