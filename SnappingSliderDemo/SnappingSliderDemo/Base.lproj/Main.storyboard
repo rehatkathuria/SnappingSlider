@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMI-lJ-PZS" customClass="SnappingSlider" customModule="SnappingSlider">
-                                <rect key="frame" x="87.5" y="318.5" width="200" height="30"/>
+                                <rect key="frame" x="19" y="318.5" width="337.5" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="JnG-5D-MR9"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="JnG-5D-MR9"/>
                                     <constraint firstAttribute="height" constant="30" id="rgt-sG-eCC"/>
                                 </constraints>
                             </view>
@@ -31,6 +32,7 @@
                         <constraints>
                             <constraint firstItem="MMI-lJ-PZS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E0f-cD-WaH"/>
                             <constraint firstItem="MMI-lJ-PZS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JlM-KQ-GRN"/>
+                            <constraint firstItem="MMI-lJ-PZS" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" priority="999" id="u5B-VE-QGe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
