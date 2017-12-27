@@ -30,15 +30,17 @@ public protocol SnappingSliderDelegate: class {
 open class SnappingSlider: UIView {
 
     final public weak var delegate:SnappingSliderDelegate?
-    final public var shouldContinueAlteringValueUntilGestureCancels:Bool = false
-    final public var incrementAndDecrementLabelFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 18.0)! { didSet { setNeedsLayout() } }
-    final public var incrementAndDecrementLabelTextColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
-    final public var incrementAndDecrementBackgroundColor:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1) { didSet { setNeedsLayout() } }
-    final public var sliderColor:UIColor = UIColor(red:0.42, green:0.76, blue:0.74, alpha:1) { didSet { setNeedsLayout() } }
-    final public var sliderTitleFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 15.0)! { didSet { setNeedsLayout() } }
-    final public var sliderTitleColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
-    final public var sliderTitleText:String = "Slide Me" { didSet { setNeedsLayout() } }
-    final public var sliderCornerRadius:CGFloat = 3.0 { didSet { setNeedsLayout() } }
+    @objc dynamic public var shouldContinueAlteringValueUntilGestureCancels:Bool = false
+    @objc dynamic public var incrementAndDecrementLabelFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 18.0)! { didSet { setNeedsLayout() } }
+    @objc dynamic public var incrementAndDecrementLabelTextColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
+    @objc dynamic public var incrementAndDecrementBackgroundColor:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1) { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderColor:UIColor = UIColor(red:0.42, green:0.76, blue:0.74, alpha:1) { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderTitleFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 15.0)! { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderTitleColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderTitleColorAtop:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1)
+    @objc dynamic public var sliderTitleText:String = "Slide Me" { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderCornerRadius:CGFloat = 3.0 { didSet { setNeedsLayout() } }
+    @objc dynamic public var shouldKeepTitleAtop:Bool = true
 
     final fileprivate let sliderContainer = UIView(frame: CGRect.zero)
     final fileprivate let minusLabel = UILabel(frame: CGRect.zero)
@@ -53,7 +55,8 @@ open class SnappingSlider: UIView {
     
     final fileprivate let sliderPanGestureRecogniser = UIPanGestureRecognizer()
     final fileprivate let dynamicButtonAnimator = UIDynamicAnimator()
-    final fileprivate var snappingBehavior:SliderSnappingBehavior?
+    final fileprivate var snappingSliderBehavior:SliderSnappingBehavior?
+    final fileprivate var snappingLabelBehavior:SliderSnappingBehavior?
 
     public init(frame:CGRect, title:String) {
 
@@ -88,23 +91,30 @@ open class SnappingSlider: UIView {
         sliderViewLabel.isUserInteractionEnabled = false
         sliderViewLabel.textAlignment = NSTextAlignment.center
         sliderViewLabel.textColor = sliderTitleColor
-        sliderView.addSubview(sliderViewLabel)
         
         sliderPanGestureRecogniser.addTarget(self, action: #selector(type(of: self).handleGesture(_:)))
         sliderView.addGestureRecognizer(sliderPanGestureRecogniser)
         
         sliderContainer.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        sliderContainer.clipsToBounds = true
         addSubview(sliderContainer)
-        clipsToBounds = true
+        
+        if shouldKeepTitleAtop {
+            addSubview(sliderViewLabel)
+        }
+        else {
+            sliderView.addSubview(sliderViewLabel)
+        }
     }
     
     override open func layoutSubviews() {
         
         super.layoutSubviews()
         
-        if snappingBehavior?.snappingPoint.x != center.x {
-        
-            snappingBehavior = SliderSnappingBehavior(item: sliderView, snapToPoint: CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5))
+        if snappingSliderBehavior?.snappingPoint.x != center.x {
+            snappingSliderBehavior = SliderSnappingBehavior(item: sliderView,
+                                                            snapToPoint: CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5),
+                                                            damping:0.25)
             lastDelegateFireOffset = sliderView.center.x
         }
         
@@ -128,20 +138,28 @@ open class SnappingSlider: UIView {
         sliderView.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         sliderView.backgroundColor = sliderColor
         
-        sliderViewLabel.frame = CGRect(x: 0.0, y: 0.0, width: sliderView.bounds.size.width, height: sliderView.bounds.size.height)
-        sliderViewLabel.center = CGPoint(x: sliderViewLabel.bounds.size.width * 0.5, y: sliderViewLabel.bounds.size.height * 0.5)
-        sliderViewLabel.backgroundColor = sliderColor
+        sliderViewLabel.frame.size = sliderView.frame.size
+        sliderViewLabel.center = sliderViewLabel.superview!.convert(sliderView.center, from: sliderView.superview)
         sliderViewLabel.font = sliderTitleFont
         sliderViewLabel.text = sliderTitleText
         
         layer.cornerRadius = sliderCornerRadius
+        
+        if snappingLabelBehavior == nil && shouldKeepTitleAtop {
+            let point = CGPoint(x: bounds.size.width * 0.5,
+                                y: bounds.size.height * 0.5)
+            snappingLabelBehavior = SliderSnappingBehavior(item: sliderViewLabel,
+                                                           snapToPoint: point,
+                                                           damping:0.8)
+            dynamicButtonAnimator.addBehavior(snappingLabelBehavior!)
+        }
     }
     
     // MARK: Gesture & Timer Handling
     
     @objc final func handleGesture(_ sender: UIGestureRecognizer) {
 
-        guard let snapBehavior = snappingBehavior else { return }
+        guard let snapSliderBehavior = snappingSliderBehavior else { return }
 
         if sender as NSObject == sliderPanGestureRecogniser {
         
@@ -151,8 +169,22 @@ open class SnappingSlider: UIView {
                 
                 isCurrentDraggingSlider = true
                 touchesBeganPoint = sliderPanGestureRecogniser.translation(in: sliderView)
-                dynamicButtonAnimator.removeBehavior(snapBehavior)
+                dynamicButtonAnimator.removeBehavior(snapSliderBehavior)
                 lastDelegateFireOffset = (bounds.size.width * 0.5) + ((touchesBeganPoint.x + touchesBeganPoint.x) * 0.40)
+                
+                if shouldKeepTitleAtop {
+                    UIView.transition(with: self.sliderViewLabel,
+                                      duration: 0.3,
+                                      options: .transitionCrossDissolve,
+                                      animations: {
+                                        self.sliderViewLabel.textColor = self.sliderTitleColorAtop
+                    }, completion: nil)
+                    if let s = snappingLabelBehavior {
+                        let point = CGPoint(x: bounds.size.width * 0.5,
+                                            y: -bounds.size.height * 0.5)
+                        s.snappingPoint = point
+                    }
+                }
                 
             case .changed:
                 
@@ -184,6 +216,14 @@ open class SnappingSlider: UIView {
                     valueChangingTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: NSSelectorFromString("handleTimer:"), userInfo: nil, repeats: true)
                 }
                 
+                if shouldKeepTitleAtop {
+                    if let s = snappingLabelBehavior {
+                        let point = CGPoint(x: translatedCenterX,
+                                            y: -bounds.size.height * 0.5)
+                        s.snappingPoint = point
+                    }
+                }
+                
             case .ended:
 
                 fallthrough
@@ -194,10 +234,24 @@ open class SnappingSlider: UIView {
 
             case .cancelled:
                 
-                dynamicButtonAnimator.addBehavior(snapBehavior)
+                dynamicButtonAnimator.addBehavior(snapSliderBehavior)
                 isCurrentDraggingSlider = false
                 lastDelegateFireOffset = center.x
                 valueChangingTimer?.invalidate()
+                
+                if shouldKeepTitleAtop {
+                    UIView.transition(with: self.sliderViewLabel,
+                                      duration: 0.3,
+                                      options: .transitionCrossDissolve,
+                                      animations: {
+                        self.sliderViewLabel.textColor = self.sliderTitleColor
+                    }, completion: nil)
+                    if let s = snappingLabelBehavior {
+                        let point = CGPoint(x: bounds.size.width * 0.5,
+                                            y: bounds.size.height * 0.5)
+                        s.snappingPoint = point
+                    }
+                }
                 
             case .possible:
 
@@ -222,16 +276,20 @@ open class SnappingSlider: UIView {
 }
 
 final class SliderSnappingBehavior: UIDynamicBehavior {
- 
-    let snappingPoint:CGPoint
-
-    init(item: UIDynamicItem, snapToPoint point: CGPoint) {
+    var snappingPoint:CGPoint {
+        didSet {
+            snapBehavior.snapPoint = snappingPoint
+        }
+    }
+    let dynamicItemBehavior:UIDynamicItemBehavior
+    let snapBehavior:UISnapBehavior
+    init(item: UIDynamicItem, snapToPoint point: CGPoint, damping: CGFloat) {
     
-        let dynamicItemBehavior:UIDynamicItemBehavior  = UIDynamicItemBehavior(items: [item])
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [item])
         dynamicItemBehavior.allowsRotation = false
         
-        let snapBehavior:UISnapBehavior = UISnapBehavior(item: item, snapTo: point)
-        snapBehavior.damping = 0.25
+        snapBehavior = UISnapBehavior(item: item, snapTo: point)
+        snapBehavior.damping = damping
         
         snappingPoint = point
         
@@ -240,5 +298,4 @@ final class SliderSnappingBehavior: UIDynamicBehavior {
         addChildBehavior(dynamicItemBehavior)
         addChildBehavior(snapBehavior)
     }
-
 }
