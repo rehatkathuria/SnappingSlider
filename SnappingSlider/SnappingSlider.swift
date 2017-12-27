@@ -40,7 +40,7 @@ open class SnappingSlider: UIView {
     @objc dynamic public var sliderTitleColorAtop:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1)
     @objc dynamic public var sliderTitleText:String = "Slide Me" { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderCornerRadius:CGFloat = 3.0 { didSet { setNeedsLayout() } }
-    @objc dynamic public var shouldKeepTitleAtop:Bool = true
+    @objc dynamic public var shouldKeepTitleAtop:Bool = false
 
     final fileprivate let sliderContainer = UIView(frame: CGRect.zero)
     final fileprivate let minusLabel = UILabel(frame: CGRect.zero)

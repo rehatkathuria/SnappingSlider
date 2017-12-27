@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B03312B61FF3674300C715DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03312B51FF3674300C715DB /* AppDelegate.swift */; };
+		B03312B81FF3674300C715DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03312B71FF3674300C715DB /* ViewController.swift */; };
+		B03312BB1FF3674300C715DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03312B91FF3674300C715DB /* Main.storyboard */; };
+		B03312BD1FF3674300C715DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03312BC1FF3674300C715DB /* Assets.xcassets */; };
+		B03312C01FF3674300C715DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03312BE1FF3674300C715DB /* LaunchScreen.storyboard */; };
+		B03312CF1FF3680200C715DB /* SnappingSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03312CC1FF3677100C715DB /* SnappingSlider.framework */; };
+		B03312D01FF3680200C715DB /* SnappingSlider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B03312CC1FF3677100C715DB /* SnappingSlider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B03312CB1FF3677100C715DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03312C71FF3677100C715DB /* SnappingSlider.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B05B95531FEC9A1100214B83;
+			remoteInfo = SnappingSlider;
+		};
+		B03312D11FF3680200C715DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B03312C71FF3677100C715DB /* SnappingSlider.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B05B95521FEC9A1100214B83;
+			remoteInfo = SnappingSlider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B03312D31FF3680200C715DB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B03312D01FF3680200C715DB /* SnappingSlider.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B03312B21FF3674200C715DB /* SnappingSliderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnappingSliderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03312B51FF3674300C715DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B03312B71FF3674300C715DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B03312BA1FF3674300C715DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B03312BC1FF3674300C715DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B03312BF1FF3674300C715DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B03312C11FF3674300C715DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B03312C71FF3677100C715DB /* SnappingSlider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnappingSlider.xcodeproj; path = ../SnappingSlider.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B03312AF1FF3674200C715DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B03312CF1FF3680200C715DB /* SnappingSlider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B03312A91FF3674200C715DB = {
+			isa = PBXGroup;
+			children = (
+				B03312C71FF3677100C715DB /* SnappingSlider.xcodeproj */,
+				B03312B41FF3674200C715DB /* SnappingSliderDemo */,
+				B03312B31FF3674200C715DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B03312B31FF3674200C715DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B03312B21FF3674200C715DB /* SnappingSliderDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B03312B41FF3674200C715DB /* SnappingSliderDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B03312B51FF3674300C715DB /* AppDelegate.swift */,
+				B03312B71FF3674300C715DB /* ViewController.swift */,
+				B03312B91FF3674300C715DB /* Main.storyboard */,
+				B03312BC1FF3674300C715DB /* Assets.xcassets */,
+				B03312BE1FF3674300C715DB /* LaunchScreen.storyboard */,
+				B03312C11FF3674300C715DB /* Info.plist */,
+			);
+			path = SnappingSliderDemo;
+			sourceTree = "<group>";
+		};
+		B03312C81FF3677100C715DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B03312CC1FF3677100C715DB /* SnappingSlider.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B03312B11FF3674200C715DB /* SnappingSliderDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B03312C41FF3674300C715DB /* Build configuration list for PBXNativeTarget "SnappingSliderDemo" */;
+			buildPhases = (
+				B03312AE1FF3674200C715DB /* Sources */,
+				B03312AF1FF3674200C715DB /* Frameworks */,
+				B03312B01FF3674200C715DB /* Resources */,
+				B03312D31FF3680200C715DB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B03312D21FF3680200C715DB /* PBXTargetDependency */,
+			);
+			name = SnappingSliderDemo;
+			productName = SnappingSliderDemo;
+			productReference = B03312B21FF3674200C715DB /* SnappingSliderDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B03312AA1FF3674200C715DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Valentin Radu";
+				TargetAttributes = {
+					B03312B11FF3674200C715DB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B03312AD1FF3674200C715DB /* Build configuration list for PBXProject "SnappingSliderDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B03312A91FF3674200C715DB;
+			productRefGroup = B03312B31FF3674200C715DB /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B03312C81FF3677100C715DB /* Products */;
+					ProjectRef = B03312C71FF3677100C715DB /* SnappingSlider.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B03312B11FF3674200C715DB /* SnappingSliderDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B03312CC1FF3677100C715DB /* SnappingSlider.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnappingSlider.framework;
+			remoteRef = B03312CB1FF3677100C715DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B03312B01FF3674200C715DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B03312C01FF3674300C715DB /* LaunchScreen.storyboard in Resources */,
+				B03312BD1FF3674300C715DB /* Assets.xcassets in Resources */,
+				B03312BB1FF3674300C715DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B03312AE1FF3674200C715DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B03312B81FF3674300C715DB /* ViewController.swift in Sources */,
+				B03312B61FF3674300C715DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B03312D21FF3680200C715DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnappingSlider;
+			targetProxy = B03312D11FF3680200C715DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B03312B91FF3674300C715DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B03312BA1FF3674300C715DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B03312BE1FF3674300C715DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B03312BF1FF3674300C715DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B03312C21FF3674300C715DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B03312C31FF3674300C715DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B03312C51FF3674300C715DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SnappingSliderDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinradu.SnappingSliderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B03312C61FF3674300C715DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SnappingSliderDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinradu.SnappingSliderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B03312AD1FF3674200C715DB /* Build configuration list for PBXProject "SnappingSliderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B03312C21FF3674300C715DB /* Debug */,
+				B03312C31FF3674300C715DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B03312C41FF3674300C715DB /* Build configuration list for PBXNativeTarget "SnappingSliderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B03312C51FF3674300C715DB /* Debug */,
+				B03312C61FF3674300C715DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B03312AA1FF3674200C715DB /* Project object */;
+}
