@@ -39,6 +39,7 @@ open class SnappingSlider: UIView {
     @objc dynamic public var sliderTitleColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleColorAtop:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1)
     @objc dynamic public var sliderTitleText:String = "Slide Me" { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderTitleAttributedText:NSAttributedString? { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderCornerRadius:CGFloat = 3.0 { didSet { setNeedsLayout() } }
     @objc dynamic public var shouldKeepTitleAtop:Bool = true
 
@@ -141,7 +142,13 @@ open class SnappingSlider: UIView {
         sliderViewLabel.frame.size = sliderView.frame.size
         sliderViewLabel.center = sliderViewLabel.superview!.convert(sliderView.center, from: sliderView.superview)
         sliderViewLabel.font = sliderTitleFont
-        sliderViewLabel.text = sliderTitleText
+        
+        if let attributedText = sliderTitleAttributedText {
+            sliderViewLabel.attributedText = attributedText
+        }
+        else {
+            sliderViewLabel.text = sliderTitleText
+        }
         
         sliderContainer.layer.cornerRadius = sliderCornerRadius
         
