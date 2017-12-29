@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import SnappingSlider
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SnappingSliderDelegate {
 
+    @IBOutlet var snappingSlider: SnappingSlider!
+    var value = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        snappingSlider.delegate = self
+        snappingSlider.sliderTitleText = String(value)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +25,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func snappingSliderDidIncrementValue(_ slider:SnappingSlider) {
+        value += 1
+        snappingSlider.sliderTitleText = String(value)
+    }
+    
+    func snappingSliderDidDecrementValue(_ slider:SnappingSlider) {
+        value -= 1
+        snappingSlider.sliderTitleText = String(value)
+    }
 }
 

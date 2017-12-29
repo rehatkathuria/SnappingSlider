@@ -22,15 +22,19 @@
 import UIKit
 
 public protocol SnappingSliderDelegate: class {
-    
     func snappingSliderDidIncrementValue(_ slider:SnappingSlider)
     func snappingSliderDidDecrementValue(_ slider:SnappingSlider)
 }
 
 open class SnappingSlider: UIView {
 
-    final public weak var delegate:SnappingSliderDelegate?
-    @objc dynamic public var shouldContinueAlteringValueUntilGestureCancels:Bool = false
+    final public weak var delegate:SnappingSliderDelegate? {
+        didSet {
+            plusButton.addTarget(self, action: #selector(inc), for: .touchUpInside)
+            minusButton.addTarget(self, action: #selector(dec), for: .touchUpInside)
+        }
+    }
+    @objc dynamic public var shouldContinueAlteringValueUntilGestureCancels:Bool = true
     @objc dynamic public var incrementAndDecrementLabelFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 18.0)! { didSet { setNeedsLayout() } }
     @objc dynamic public var incrementAndDecrementLabelTextColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
     @objc dynamic public var incrementAndDecrementBackgroundColor:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1) { didSet { setNeedsLayout() } }
@@ -38,14 +42,14 @@ open class SnappingSlider: UIView {
     @objc dynamic public var sliderTitleFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 15.0)! { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleColorAtop:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1)
-    @objc dynamic public var sliderTitleText:String = "Slide Me" { didSet { setNeedsLayout() } }
-    @objc dynamic public var sliderTitleAttributedText:NSAttributedString? { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderTitleText:String = "Slide Me" { didSet { updateText() } }
+    @objc dynamic public var sliderTitleAttributedText:NSAttributedString? { didSet { updateText() } }
     @objc dynamic public var sliderCornerRadius:CGFloat = 3.0 { didSet { setNeedsLayout() } }
     @objc dynamic public var shouldKeepTitleAtop:Bool = true
 
     final fileprivate let sliderContainer = UIView(frame: CGRect.zero)
-    final fileprivate let minusLabel = UILabel(frame: CGRect.zero)
-    final fileprivate let plusLabel = UILabel(frame: CGRect.zero)
+    final fileprivate let minusButton = UIButton(frame: CGRect.zero)
+    final fileprivate let plusButton = UIButton(frame: CGRect.zero)
     final fileprivate let sliderView = UIView(frame: CGRect.zero)
     final fileprivate let sliderViewLabel = UILabel(frame: CGRect.zero)
     
@@ -79,13 +83,13 @@ open class SnappingSlider: UIView {
         
         sliderContainer.backgroundColor = backgroundColor
         
-        minusLabel.text = "-"
-        minusLabel.textAlignment = NSTextAlignment.center
-        sliderContainer.addSubview(minusLabel)
+        minusButton.setTitle("-", for: .normal)
+        minusButton.titleLabel?.textAlignment = NSTextAlignment.center
+        sliderContainer.addSubview(minusButton)
         
-        plusLabel.text = "+"
-        plusLabel.textAlignment = NSTextAlignment.center
-        sliderContainer.addSubview(plusLabel)
+        plusButton.setTitle("+", for: .normal)
+        plusButton.titleLabel?.textAlignment = NSTextAlignment.center
+        sliderContainer.addSubview(plusButton)
         
         sliderContainer.addSubview(sliderView)
         
@@ -123,17 +127,17 @@ open class SnappingSlider: UIView {
         sliderContainer.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         sliderContainer.backgroundColor = incrementAndDecrementBackgroundColor
 
-        minusLabel.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
-        minusLabel.center = CGPoint(x: minusLabel.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-        minusLabel.backgroundColor = incrementAndDecrementBackgroundColor
-        minusLabel.font = incrementAndDecrementLabelFont
-        minusLabel.textColor = incrementAndDecrementLabelTextColor
+        minusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
+        minusButton.center = CGPoint(x: minusButton.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        minusButton.backgroundColor = incrementAndDecrementBackgroundColor
+        minusButton.titleLabel?.font = incrementAndDecrementLabelFont
+        minusButton.titleLabel?.textColor = incrementAndDecrementLabelTextColor
         
-        plusLabel.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
-        plusLabel.center = CGPoint(x: bounds.size.width - plusLabel.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-        plusLabel.backgroundColor = incrementAndDecrementBackgroundColor
-        plusLabel.font = incrementAndDecrementLabelFont
-        plusLabel.textColor = incrementAndDecrementLabelTextColor
+        plusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
+        plusButton.center = CGPoint(x: bounds.size.width - plusButton.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
+        plusButton.backgroundColor = incrementAndDecrementBackgroundColor
+        plusButton.titleLabel?.font = incrementAndDecrementLabelFont
+        plusButton.titleLabel?.textColor = incrementAndDecrementLabelTextColor
         
         sliderView.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.5, height: bounds.size.height)
         sliderView.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
@@ -142,13 +146,6 @@ open class SnappingSlider: UIView {
         sliderViewLabel.frame.size = sliderView.frame.size
         sliderViewLabel.center = sliderViewLabel.superview!.convert(sliderView.center, from: sliderView.superview)
         sliderViewLabel.font = sliderTitleFont
-        
-        if let attributedText = sliderTitleAttributedText {
-            sliderViewLabel.attributedText = attributedText
-        }
-        else {
-            sliderViewLabel.text = sliderTitleText
-        }
         
         sliderContainer.layer.cornerRadius = sliderCornerRadius
         
@@ -160,6 +157,8 @@ open class SnappingSlider: UIView {
                                                            damping:0.8)
             dynamicButtonAnimator.addBehavior(snappingLabelBehavior!)
         }
+        
+        updateText()
     }
     
     // MARK: Gesture & Timer Handling
@@ -219,8 +218,13 @@ open class SnappingSlider: UIView {
                 }
                 
                 if shouldContinueAlteringValueUntilGestureCancels {
-                    
-                    valueChangingTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: NSSelectorFromString("handleTimer:"), userInfo: nil, repeats: true)
+                    let ratio = abs(sliderView.center.x - bounds.width / 2) / ((bounds.width - sliderView.bounds.width) / 2)
+                    let time = 0.05 + 0.5 * (1.0 - ratio)
+                    valueChangingTimer = Timer.scheduledTimer(timeInterval: Double(time),
+                                                              target: self,
+                                                              selector: #selector(handleTimer),
+                                                              userInfo: nil,
+                                                              repeats: true)
                 }
                 
                 if shouldKeepTitleAtop {
@@ -268,18 +272,32 @@ open class SnappingSlider: UIView {
         }
     }
     
-    final func handleTimer(_ sender: Timer) {
-    
+    @objc final func handleTimer(_ sender: Timer) {
         if sliderView.frame.midX > self.bounds.midX {
-            
             delegate?.snappingSliderDidIncrementValue(self)
         }
         else {
-            
             delegate?.snappingSliderDidDecrementValue(self)
         }
     }
 
+    //MARK: - Text update
+    private func updateText() {
+        if let attributedText = sliderTitleAttributedText {
+            sliderViewLabel.attributedText = attributedText
+        }
+        else {
+            sliderViewLabel.text = sliderTitleText
+        }
+    }
+    
+    //MARK: - Inc and dec forwarders
+    @objc private func inc() {
+        delegate?.snappingSliderDidIncrementValue(self)
+    }
+    @objc private func dec() {
+        delegate?.snappingSliderDidDecrementValue(self)
+    }
 }
 
 final class SliderSnappingBehavior: UIDynamicBehavior {
