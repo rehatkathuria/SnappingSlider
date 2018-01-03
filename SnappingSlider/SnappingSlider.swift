@@ -148,6 +148,7 @@ open class SnappingSlider: UIView {
         sliderViewLabel.font = sliderTitleFont
         
         sliderContainer.layer.cornerRadius = sliderCornerRadius
+        sliderView.layer.cornerRadius = sliderCornerRadius
         
         if snappingLabelBehavior == nil && shouldKeepTitleAtop {
             let point = CGPoint(x: bounds.size.width * 0.5,
