@@ -39,6 +39,7 @@ open class SnappingSlider: UIView {
     @objc dynamic public var incrementAndDecrementLabelTextColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
     @objc dynamic public var incrementAndDecrementBackgroundColor:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1) { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderColor:UIColor = UIColor(red:0.42, green:0.76, blue:0.74, alpha:1) { didSet { setNeedsLayout() } }
+    @objc dynamic public var sliderWidthRatio:CGFloat = 0.5 { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleFont:UIFont = UIFont(name: "TrebuchetMS-Bold", size: 15.0)! { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleColor:UIColor = UIColor.white { didSet { setNeedsLayout() } }
     @objc dynamic public var sliderTitleColorAtop:UIColor = UIColor(red:0.36, green:0.65, blue:0.65, alpha:1)
@@ -127,19 +128,19 @@ open class SnappingSlider: UIView {
         sliderContainer.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         sliderContainer.backgroundColor = incrementAndDecrementBackgroundColor
 
-        minusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
+        minusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * sliderWidthRatio * 0.5, height: bounds.size.height)
         minusButton.center = CGPoint(x: minusButton.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         minusButton.backgroundColor = incrementAndDecrementBackgroundColor
         minusButton.titleLabel?.font = incrementAndDecrementLabelFont
         minusButton.titleLabel?.textColor = incrementAndDecrementLabelTextColor
         
-        plusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.25, height: bounds.size.height)
+        plusButton.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * sliderWidthRatio * 0.5, height: bounds.size.height)
         plusButton.center = CGPoint(x: bounds.size.width - plusButton.bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         plusButton.backgroundColor = incrementAndDecrementBackgroundColor
         plusButton.titleLabel?.font = incrementAndDecrementLabelFont
         plusButton.titleLabel?.textColor = incrementAndDecrementLabelTextColor
         
-        sliderView.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * 0.5, height: bounds.size.height)
+        sliderView.frame = CGRect(x: 0.0, y: 0.0, width: bounds.size.width * sliderWidthRatio, height: bounds.size.height)
         sliderView.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         sliderView.backgroundColor = sliderColor
         
