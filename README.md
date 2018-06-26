@@ -36,7 +36,7 @@ func snappingSliderDidDecrementValue(snapSwitch: SnappingSlider) {
 ```
 
 ## Author
-This control has been open-sourced by [Rehat Kathuria](http://kthr.co). You can follow him on twitter, [here](http://twitter.com/rehatkat), and hire him for freelance projects, [here](mailto:rehat@kathuria.co).
+This control has been open-sourced by [Rehat Kathuria](http://kthr.co). You can follow him on twitter, [here](http://twitter.com/rhtkth), and hire him for freelance projects, [here](mailto:rehat@kathuria.co).
     
 ## License & Other Boring Stuff
 Licensed under MIT. If you use the control somewhere, [do let me know](http://twitter.com/rehatkat). I'd love to see it out in the wild.
